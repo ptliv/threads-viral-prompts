@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스레드 10만+ 바이럴 과장 피드 제작 시스템</title>
+  <title>스레드 10만+ 바이럴 과장 피드 제작 시스템 (약과 & 맥 립스틱)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
-    .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+    .glass { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(14px); }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-rose-100 selection:text-rose-700">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-medium">
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-950 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 text-sm font-medium border border-slate-800">
     <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
     <span id="toast-msg">클립보드에 복사되었습니다!</span>
   </div>
@@ -29,7 +29,7 @@
         <span class="font-extrabold text-lg tracking-tight text-slate-900">Threads 바이럴 시스템</span>
       </div>
       <div class="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-slate-600">
-        <a href="#results" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100 transition">실제 생성물</a>
+        <a href="#showcase" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100 transition">검증 결과</a>
         <a href="#formula" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100 transition hidden sm:inline-block">바이럴 공식</a>
         <a href="#situations" class="px-3 py-1.5 rounded-lg text-rose-600 bg-rose-50 hover:bg-rose-100 transition font-bold">10대 상황 프롬프트</a>
       </div>
@@ -41,34 +41,158 @@
     <section class="text-center space-y-4">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200/60 mb-2">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        사용자 ChatGPT Pro 세션 직접 실시간 검증 완료
+        사용자 AdsPower 프로필(51번 창) ChatGPT Pro 실시간 생성·검증 완료
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight">
         조회수 10만+ 터지는<br class="sm:hidden" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600">과장 밈 + 일상 훔쳐보기</span> 프롬프트
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600">과장 밈 + 일상 훔쳐보기</span> 시스템
       </h1>
       <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-        카카오톡 25개 대박 피드의 승리 공식을 완벽 역기획하여 개발된 2-Card 프롬프트 시스템입니다. 어떤 상품이든 대입만 하면 고효율 바이럴 피드가 완성됩니다.
+        카카오톡 25개 바이럴 대박 피드의 승리 공식을 역기획하여, ChatGPT 웹에서 직접 검증한 [맥(M·A·C) 립스틱] & [호정가 약과 1kg] 2-Card 실전 세트입니다.
       </p>
+
+      <!-- Product Tab Switcher -->
+      <div class="flex justify-center pt-4">
+        <div class="inline-flex p-1.5 rounded-2xl bg-slate-200/80 border border-slate-300/60 shadow-inner">
+          <button id="tab-btn-mac" onclick="switchProduct('mac')" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm bg-white text-slate-900">
+            💄 신규: 맥(M·A·C) 립스틱 검증
+          </button>
+          <button id="tab-btn-yakgwa" onclick="switchProduct('yakgwa')" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-slate-600 hover:text-slate-900">
+            🍯 호정가 약과 1kg 검증
+          </button>
+        </div>
+      </div>
     </section>
 
-    <!-- Results Showcase -->
-    <section id="results" class="scroll-mt-24 space-y-6">
+    <!-- SECTION: MAC LIPSTICK SHOWCASE -->
+    <section id="showcase-mac" class="scroll-mt-24 space-y-6">
       <div class="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">실제 ChatGPT 생성 검증 결과</h2>
-          <p class="text-sm text-slate-500 mt-1">테스트 상품: [호정가 우리쌀약과 1kg] 68% 특가 (4,990원)</p>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-rose-600 text-white text-xs font-bold uppercase">HOT 검증</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">맥(M·A·C) 립스틱 실제 ChatGPT 생성물</h2>
+          </div>
+          <p class="text-sm text-slate-500 mt-1">백화점 정가 38,000원 ➔ 1만원대 특가 대란 컨셉 (시선강탈 스냅 + 복도 택배 폭탄)</p>
+        </div>
+        <span class="text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full">DALL-E 3 실사 100%</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- MAC Photo 1 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-rose-500 text-white font-bold text-xs flex items-center justify-center">1</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 1: 한남동 부티크 전신 셀카</span>
+            </div>
+            <span class="text-xs bg-rose-50 text-rose-700 font-semibold px-2.5 py-1 rounded-md">시선 후킹</span>
+          </div>
+          <div class="relative bg-slate-100 aspect-[3/4] overflow-hidden group">
+            <img src="chatgpt_generated_mac_woman.png" alt="맥 립스틱 한남동 전신 셀카" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer" onclick="openModal(this.src)" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 text-white text-xs opacity-90">
+              클릭하여 고화질 원본 확대 보기
+            </div>
+          </div>
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+              <p><strong class="text-slate-900">장소/구도:</strong> 한남동 감성 부티크 샵 대형 전면 거울 전신 셀카</p>
+              <p><strong class="text-slate-900">인물 연출:</strong> 20대 여성 블랙 오프숄더 니트 + 와이드 슬랙스 세련된 사복 핏, 폰으로 눈 가림</p>
+              <p><strong class="text-slate-900">상품 노출:</strong> 한 손에 맥 시그니처 블랙 총알 립스틱(칠리 레드 팁) 오픈 연출</p>
+            </div>
+            <button onclick="copyText('실제 20대 한국 여성의 트렌디한 인스타 일상 거울 셀카 사진. 장소는 서울 한남동의 미니멀한 감성 부티크 샵 또는 카페 대형 전면 거울 앞. 전신 거울 셀카 구도. 슬림하고 세련된 블랙 오프숄더 니트와 와이드 슬랙스를 입고, 스마트폰을 들어 얼굴 윗부분(눈)을 자연스럽게 가린 채 거울 셀카를 찍고 있음. 매력적인 칠리 레드 립 메이크업이 살짝 보이고, 다른 한 손에는 맥의 시그니처 블랙 총알 립스틱(M·A·C bullet lipstick)을 가볍게 쥐고 있음. 자연스러운 실내 조명과 유리 거울 반사, 과도한 AI 보정이나 CG 느낌 없이 실제 아이폰 기본 카메라로 찍은 듯한 현실적인 피부 톤과 라이브 폰카 질감.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              맥 사진 1 프롬프트 복사
+            </button>
+          </div>
+        </div>
+
+        <!-- MAC Photo 2 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-white font-bold text-xs flex items-center justify-center">2</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 2: 복도 M·A·C 택배 박스 탑</span>
+            </div>
+            <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-md">기사님 사죄 밈</span>
+          </div>
+          <div class="relative bg-slate-100 aspect-[3/4] overflow-hidden group">
+            <img src="chatgpt_generated_mac_boxes.png" alt="아파트 복도 MAC 택배 박스 산더미" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer" onclick="openModal(this.src)" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 text-white text-xs opacity-90">
+              클릭하여 고화질 원본 확대 보기
+            </div>
+          </div>
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+              <p><strong class="text-slate-900">장소/구도:</strong> 한국 아파트 엘리베이터 앞 복도 바닥 (사람 완전 배제)</p>
+              <p><strong class="text-slate-900">과장 연출:</strong> 선명한 'M·A·C LIPSTICK' 로고가 박힌 택배 박스 수십 개가 천장까지 적재</p>
+              <p><strong class="text-slate-900">현실감:</strong> 엘리베이터 층수 표시기, 바닥 대리석 타일, 형광등 조명, 송장 바코드 디테일</p>
+            </div>
+            <button onclick="copyText('한국 아파트 엘리베이터 앞 복도 바닥에 사람 없이 찍은 스마트폰 사진이야. 복도 벽면을 따라 깔끔한 영문 대문자로 \'M·A·C\' 로고와 \'LIPSTICK\'이라고 인쇄된 택배 박스 수십 개가 천장까지 빈틈없이 거대한 벽돌처럼 산더미로 빽빽하게 쌓여 있음. 사람은 전혀 없음. 엘리베이터 문과 아파트 복도 타일 바닥, 천장 형광등 조명이 보이는 현실적인 한국 복도 아이폰 폰카 스냅 사진. 백화점 3만원대 립스틱이 만원 특가로 풀려서 눈 돌아가 전색상 수십 개를 쟁여둔 황당하고 코믹한 과장 상황.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              맥 사진 2 프롬프트 복사
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAC Feed Copy -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="border-b border-slate-100 pb-3">
+          <h3 class="text-lg font-bold text-slate-900">맥(M·A·C) 립스틱 실전 Threads 피드 카피 세트</h3>
+          <p class="text-xs sm:text-sm text-slate-500">사진 2장과 함께 업로드하는 본문 및 댓글 조합입니다.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">피드 본문 (Post 1/2)</span>
+              <pre id="mac-post-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">택배 기사님 진심으로 석고대죄합니다...🚪📦💄
+
+백화점 정가 3만 8천원짜리 맥 총알 립스틱 만원 특가 풀렸길래
+쿨톤 웜톤 베스트 컬러 다 담고 친구들 줄 것까지 담았더니
+퇴근하고 엘베 내리자마자 복도 보고 기절할 뻔했어요ㅋㅋㅋㅠㅠ
+
+기사님이 문 앞에 박스로 성벽을 쌓아두고 가심...
+유통기한 넉넉해서 평생 쓸 립스틱 다 쟁였네요ㅋㅋㅋ
+립스틱 처돌이 분들은 품절 전에 얼른 타세요!!</pre>
+            </div>
+            <button onclick="copyElement('mac-post-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+              맥 본문 카피 복사
+            </button>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">첫 댓글 (Post 2/2)</span>
+              <pre id="mac-comment-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">프로필 링크에 맥 립스틱 1만원대 공구 좌표 남겨뒀어요!
+색상별로 재고 빠지는 속도 미쳐서 품절 뜨면 댓글로 알려주세요 바로 확인해볼게요🔥</pre>
+            </div>
+            <button onclick="copyElement('mac-comment-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+              맥 댓글 카피 복사
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: YAKGWA SHOWCASE -->
+    <section id="showcase-yakgwa" class="scroll-mt-24 space-y-6 hidden">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-amber-600 text-white text-xs font-bold uppercase">식품/간식</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">호정가 우리쌀약과 1kg 실제 ChatGPT 생성물</h2>
+          </div>
+          <p class="text-sm text-slate-500 mt-1">16,000원 ➔ 4,990원 68% 특가 (성수동 카페 쇼윈도 셀카 + 복도 천장 박스 탑)</p>
         </div>
         <span class="text-xs font-semibold bg-slate-100 text-slate-700 px-3 py-1 rounded-full">DALL-E 3 원본 실사</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        <!-- Photo 1 Card -->
+        <!-- Yakgwa Photo 1 -->
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
           <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <span class="w-6 h-6 rounded-full bg-rose-500 text-white font-bold text-xs flex items-center justify-center">1</span>
-              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 1: 시선 후킹 일상 스냅</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 1: 성수동 카페 쇼윈도 거울 셀카</span>
             </div>
             <span class="text-xs bg-rose-50 text-rose-700 font-semibold px-2.5 py-1 rounded-md">체류시간 극대화</span>
           </div>
@@ -86,19 +210,19 @@
             </div>
             <button onclick="copyText('실제 20대 한국 여성의 인스타 일상 거울 셀카 사진. 장소는 서울 성수동 골목 감성 카페 쇼윈도 유리창 앞. 쇼윈도에 비친 전신 거울 셀카 구도. 슬림하고 탄탄한 핏의 크롭 니트와 와이드 데님 팬츠를 입고, 스마트폰을 들어 얼굴 윗부분을 자연스럽게 가린 채 거울 셀카를 찍고 있음. 다른 한 손에는 투명하게 포장된 한국 전통 찹쌀 약과를 가볍게 들고 있음. 오후 자연광, 유리창에 은은한 거리 반사, 아이폰 기본 카메라 라이브 스냅 질감.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              사진 1 검증 프롬프트 복사
+              약과 사진 1 프롬프트 복사
             </button>
           </div>
         </div>
 
-        <!-- Photo 2 Card -->
+        <!-- Yakgwa Photo 2 -->
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
           <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <span class="w-6 h-6 rounded-full bg-amber-500 text-white font-bold text-xs flex items-center justify-center">2</span>
-              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 2: 과장 밈 증명샷</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 2: 복도 찹쌀 약과 박스 탑</span>
             </div>
-            <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-md">바이럴 & 댓글 유도</span>
+            <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-md">기사님 사죄 밈</span>
           </div>
           <div class="relative bg-slate-100 aspect-[3/4] overflow-hidden group">
             <img src="chatgpt_generated_box_stack.png" alt="아파트 복도 엘리베이터 앞 박스 탑" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer" onclick="openModal(this.src)" />
@@ -114,7 +238,43 @@
             </div>
             <button onclick="copyText('한국 아파트 엘리베이터 앞 복도 바닥에 사람 없이 찍은 스마트폰 사진. 복도 벽면을 따라 \'전통 찹쌀 약과 1kg\'라고 적힌 갈색 택배 박스 수십 개가 천장까지 빈틈없이 거대한 벽돌처럼 산더미로 쌓여 있음. 사람 전혀 없음. 엘리베이터 문과 타일 바닥, 형광등 조명이 보이는 현실적인 한국 복도 폰카 스냅.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              사진 2 검증 프롬프트 복사
+              약과 사진 2 프롬프트 복사
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yakgwa Feed Copy -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="border-b border-slate-100 pb-3">
+          <h3 class="text-lg font-bold text-slate-900">호정가 우리쌀약과 1kg 실전 Threads 피드 카피 세트</h3>
+          <p class="text-xs sm:text-sm text-slate-500">사진 2장과 함께 업로드하는 본문 및 댓글 조합입니다.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">피드 본문 (Post 1/2)</span>
+              <pre id="feed-post-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">택배 기사님 진심으로 죄송합니다...🚪📦
+
+1kg에 4천원대라길래 눈 돌아서 쟁여뒀는데
+퇴근하고 엘베 내리자마자 저희 집 앞 보고 기절할 뻔했어요ㅋㅋㅋ
+한 개 100원 꼴인데 이걸 어떻게 참아요 진짜ㅠㅠ
+
+찹쌀이라 쫀득달달해서 온 가족이 먹어도 반년은 거뜬할 듯..
+쟁여두실 분들은 지금 얼른 타세요!!</pre>
+            </div>
+            <button onclick="copyElement('feed-post-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+              약과 본문 카피 복사
+            </button>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">첫 댓글 (Post 2/2)</span>
+              <pre id="feed-comment-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">프로필 링크에 약과 4천원대 공구 좌표 260번에 남겨뒀어요!
+수량 얼마 안 남아서 품절 뜨면 댓글로 알려주세요 바로 확인해볼게요🔥</pre>
+            </div>
+            <button onclick="copyElement('feed-comment-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+              약과 댓글 카피 복사
             </button>
           </div>
         </div>
@@ -135,10 +295,10 @@
             <span>반드시 지켜야 할 성공 공식 (DO)</span>
           </div>
           <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
-            <li>• <strong>사진 1</strong>: 20대 여성 일상 훔쳐보기 (쇼윈도 거울 셀카, 폰으로 얼굴 가림, 크롭탑/와이드 팬츠 핏)</li>
-            <li>• <strong>사진 2</strong>: 사람 완전 배제, 비현실적으로 쌓인 천장 높이 택배 박스 탑 밈</li>
+            <li>• <strong>사진 1</strong>: 20대 여성 일상 훔쳐보기 (쇼윈도 거울 셀카, 폰으로 얼굴 가림, 크롭탑/오프숄더 사복 핏)</li>
+            <li>• <strong>사진 2</strong>: 사람 완전 배제, 비현실적으로 쌓인 천장 높이 브랜드 택배 박스 탑 밈</li>
             <li>• <strong>본문 톤앤매너</strong>: 억울함/경악/자책 ("기사님 죄송합니다.. 1개 100원 꼴인데 어케 참아요")</li>
-            <li>• <strong>댓글 유도</strong>: "프로필 링크 번호 안내 + 품절되면 알려달라" 자연스러운 반응 유도</li>
+            <li>• <strong>댓글 유도</strong>: "프로필 링크 번호 안내 + 품절되면 알려달라" 자연스러운 구매 유도</li>
           </ul>
         </div>
 
@@ -150,7 +310,7 @@
           <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
             <li>• <strong>가정집 연출 금지</strong>: 수면 파자마, 주방 앞치마, 촌스러운 싱크대 배경 (아줌마/영업 피드로 오인)</li>
             <li>• <strong>사람 개입 금지 (사진 2)</strong>: 사람이 박스를 들고 포즈를 취하면 밈 느낌이 사라지고 상업 광고로 전락</li>
-            <li>• <strong>설명충 카피 금지</strong>: "건강하고 맛있는 영양 간식입니다" 식의 상품 설명문 즉시 이탈</li>
+            <li>• <strong>설명충 카피 금지</strong>: "발색력이 뛰어나고 촉촉합니다" 식의 제품 설명문 즉시 이탈</li>
             <li>• <strong>AI 티 금지</strong>: 번들거리는 CG 피부 질감, 인위적인 3D 렌더링 톤 배제</li>
           </ul>
         </div>
@@ -165,55 +325,7 @@
       </div>
 
       <!-- Situation Cards Grid -->
-      <div class="grid grid-cols-1 gap-6" id="situations-container">
-        <!-- Javascript will render or we write standard high-polish cards -->
-      </div>
-    </section>
-
-    <!-- Actual Copywriting Section -->
-    <section class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
-      <div class="border-b border-slate-100 pb-4">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Threads 실전 발행 피드 카피 세트 (호정가 약과)</h2>
-        <p class="text-sm text-slate-500 mt-1">사진 2장과 함께 업로드하는 본문 및 댓글 조합입니다.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Post 1 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">피드 본문 (Post 1/2)</span>
-              <span class="text-xs text-rose-600 font-semibold">사진 2장 첨부</span>
-            </div>
-            <pre id="feed-post-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">택배 기사님 진심으로 죄송합니다...🚪📦
-
-1kg에 4천원대라길래 눈 돌아서 쟁여뒀는데
-퇴근하고 엘베 내리자마자 저희 집 앞 보고 기절할 뻔했어요ㅋㅋㅋ
-한 개 100원 꼴인데 이걸 어떻게 참아요 진짜ㅠㅠ
-
-찹쌀이라 쫀득달달해서 온 가족이 먹어도 반년은 거뜬할 듯..
-쟁여두실 분들은 지금 얼른 타세요!!</pre>
-          </div>
-          <button onclick="copyElement('feed-post-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
-            본문 카피 복사
-          </button>
-        </div>
-
-        <!-- Post 2 (Comment) -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">첫 댓글 (Post 2/2)</span>
-              <span class="text-xs text-emerald-600 font-semibold">전환 유도</span>
-            </div>
-            <pre id="feed-comment-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">프로필 링크에 약과 4천원대 공구 좌표 260번에 남겨뒀어요!
-수량 얼마 안 남아서 품절 뜨면 댓글로 알려주세요 바로 확인해볼게요🔥</pre>
-          </div>
-          <button onclick="copyElement('feed-comment-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
-            댓글 카피 복사
-          </button>
-        </div>
-      </div>
+      <div class="grid grid-cols-1 gap-6" id="situations-container"></div>
     </section>
   </main>
 
@@ -229,6 +341,25 @@
   </footer>
 
   <script>
+    function switchProduct(prod) {
+      const macSec = document.getElementById('showcase-mac');
+      const yakgwaSec = document.getElementById('showcase-yakgwa');
+      const btnMac = document.getElementById('tab-btn-mac');
+      const btnYakgwa = document.getElementById('tab-btn-yakgwa');
+
+      if (prod === 'mac') {
+        macSec.classList.remove('hidden');
+        yakgwaSec.classList.add('hidden');
+        btnMac.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm bg-white text-slate-900";
+        btnYakgwa.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-slate-600 hover:text-slate-900";
+      } else {
+        yakgwaSec.classList.remove('hidden');
+        macSec.classList.add('hidden');
+        btnYakgwa.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm bg-white text-slate-900";
+        btnMac.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-slate-600 hover:text-slate-900";
+      }
+    }
+
     const situations = [
       {
         num: 1,
