@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스레드 10만+ 바이럴 과장 피드 제작 시스템</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+    .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-rose-100 selection:text-rose-700">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-medium">
+    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-msg">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass border-b border-slate-200/80 transition-all">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-500 text-white font-bold text-sm shadow-sm">
+          🔥
+        </span>
+        <span class="font-extrabold text-lg tracking-tight text-slate-900">Threads 바이럴 시스템</span>
+      </div>
+      <div class="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-slate-600">
+        <a href="#results" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100 transition">실제 생성물</a>
+        <a href="#formula" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100 transition hidden sm:inline-block">바이럴 공식</a>
+        <a href="#situations" class="px-3 py-1.5 rounded-lg text-rose-600 bg-rose-50 hover:bg-rose-100 transition font-bold">10대 상황 프롬프트</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-16">
+    <section class="text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200/60 mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        사용자 ChatGPT Pro 세션 직접 실시간 검증 완료
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight">
+        조회수 10만+ 터지는<br class="sm:hidden" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600">과장 밈 + 일상 훔쳐보기</span> 프롬프트
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+        카카오톡 25개 대박 피드의 승리 공식을 완벽 역기획하여 개발된 2-Card 프롬프트 시스템입니다. 어떤 상품이든 대입만 하면 고효율 바이럴 피드가 완성됩니다.
+      </p>
+    </section>
+
+    <!-- Results Showcase -->
+    <section id="results" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">실제 ChatGPT 생성 검증 결과</h2>
+          <p class="text-sm text-slate-500 mt-1">테스트 상품: [호정가 우리쌀약과 1kg] 68% 특가 (4,990원)</p>
+        </div>
+        <span class="text-xs font-semibold bg-slate-100 text-slate-700 px-3 py-1 rounded-full">DALL-E 3 원본 실사</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- Photo 1 Card -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-rose-500 text-white font-bold text-xs flex items-center justify-center">1</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 1: 시선 후킹 일상 스냅</span>
+            </div>
+            <span class="text-xs bg-rose-50 text-rose-700 font-semibold px-2.5 py-1 rounded-md">체류시간 극대화</span>
+          </div>
+          <div class="relative bg-slate-100 aspect-[3/4] overflow-hidden group">
+            <img src="chatgpt_generated_woman_selfie.png" alt="성수동 카페 쇼윈도 거울 셀카" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer" onclick="openModal(this.src)" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 text-white text-xs opacity-90">
+              클릭하여 고화질 원본 확대 보기
+            </div>
+          </div>
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+              <p><strong class="text-slate-900">장소/구도:</strong> 성수동 카페 쇼윈도 유리창 반사 전신 거울 셀카</p>
+              <p><strong class="text-slate-900">인물 연출:</strong> 20대 여성 트렌디 크롭탑 + 와이드 데님 사복 핏, 폰으로 얼굴 상단 가림</p>
+              <p><strong class="text-slate-900">상품 노출:</strong> 한 손에 투명 포장된 약과를 무심하게 든 라이브 스냅</p>
+            </div>
+            <button onclick="copyText('실제 20대 한국 여성의 인스타 일상 거울 셀카 사진. 장소는 서울 성수동 골목 감성 카페 쇼윈도 유리창 앞. 쇼윈도에 비친 전신 거울 셀카 구도. 슬림하고 탄탄한 핏의 크롭 니트와 와이드 데님 팬츠를 입고, 스마트폰을 들어 얼굴 윗부분을 자연스럽게 가린 채 거울 셀카를 찍고 있음. 다른 한 손에는 투명하게 포장된 한국 전통 찹쌀 약과를 가볍게 들고 있음. 오후 자연광, 유리창에 은은한 거리 반사, 아이폰 기본 카메라 라이브 스냅 질감.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              사진 1 검증 프롬프트 복사
+            </button>
+          </div>
+        </div>
+
+        <!-- Photo 2 Card -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-white font-bold text-xs flex items-center justify-center">2</span>
+              <span class="font-bold text-slate-900 text-sm sm:text-base">사진 2: 과장 밈 증명샷</span>
+            </div>
+            <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-md">바이럴 & 댓글 유도</span>
+          </div>
+          <div class="relative bg-slate-100 aspect-[3/4] overflow-hidden group">
+            <img src="chatgpt_generated_box_stack.png" alt="아파트 복도 엘리베이터 앞 박스 탑" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer" onclick="openModal(this.src)" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 text-white text-xs opacity-90">
+              클릭하여 고화질 원본 확대 보기
+            </div>
+          </div>
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+              <p><strong class="text-slate-900">장소/구도:</strong> 아파트 엘리베이터 앞 복도 바닥 (사람 완전 배제)</p>
+              <p><strong class="text-slate-900">과장 연출:</strong> '전통 찹쌀 약과 1kg' 갈색 택배 박스 수십 개가 천장까지 빈틈없이 적재</p>
+              <p><strong class="text-slate-900">현실감:</strong> 복도 타일 바닥, 형광등 조명, 택배 박스 바코드 실사 디테일</p>
+            </div>
+            <button onclick="copyText('한국 아파트 엘리베이터 앞 복도 바닥에 사람 없이 찍은 스마트폰 사진. 복도 벽면을 따라 \'전통 찹쌀 약과 1kg\'라고 적힌 갈색 택배 박스 수십 개가 천장까지 빈틈없이 거대한 벽돌처럼 산더미로 쌓여 있음. 사람 전혀 없음. 엘리베이터 문과 타일 바닥, 형광등 조명이 보이는 현실적인 한국 복도 폰카 스냅.')" class="w-full mt-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              사진 2 검증 프롬프트 복사
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formula Breakdown -->
+    <section id="formula" class="scroll-mt-24 bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">카카오톡 25개 바이럴 레퍼런스 역기획</h2>
+        <p class="text-sm text-slate-500 mt-1">10만 조회수를 보장하는 핵심 문법과 절대 피해야 할 실패 요인</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-3">
+          <div class="flex items-center space-x-2 text-emerald-800 font-bold">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>반드시 지켜야 할 성공 공식 (DO)</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+            <li>• <strong>사진 1</strong>: 20대 여성 일상 훔쳐보기 (쇼윈도 거울 셀카, 폰으로 얼굴 가림, 크롭탑/와이드 팬츠 핏)</li>
+            <li>• <strong>사진 2</strong>: 사람 완전 배제, 비현실적으로 쌓인 천장 높이 택배 박스 탑 밈</li>
+            <li>• <strong>본문 톤앤매너</strong>: 억울함/경악/자책 ("기사님 죄송합니다.. 1개 100원 꼴인데 어케 참아요")</li>
+            <li>• <strong>댓글 유도</strong>: "프로필 링크 번호 안내 + 품절되면 알려달라" 자연스러운 반응 유도</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-rose-50/50 border border-rose-100 space-y-3">
+          <div class="flex items-center space-x-2 text-rose-800 font-bold">
+            <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            <span>조회수 죽이는 실패 요인 (DON'T)</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+            <li>• <strong>가정집 연출 금지</strong>: 수면 파자마, 주방 앞치마, 촌스러운 싱크대 배경 (아줌마/영업 피드로 오인)</li>
+            <li>• <strong>사람 개입 금지 (사진 2)</strong>: 사람이 박스를 들고 포즈를 취하면 밈 느낌이 사라지고 상업 광고로 전락</li>
+            <li>• <strong>설명충 카피 금지</strong>: "건강하고 맛있는 영양 간식입니다" 식의 상품 설명문 즉시 이탈</li>
+            <li>• <strong>AI 티 금지</strong>: 번들거리는 CG 피부 질감, 인위적인 3D 렌더링 톤 배제</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Situations Prompt Library -->
+    <section id="situations" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">어떤 상품이든 적용 가능한 10대 상황 프롬프트</h2>
+        <p class="text-sm text-slate-500 mt-1"><code class="text-rose-600 font-semibold">{상품명}</code>과 <code class="text-rose-600 font-semibold">{소용량 1개 형태}</code>만 변경하여 ChatGPT에 그대로 입력하세요.</p>
+      </div>
+
+      <!-- Situation Cards Grid -->
+      <div class="grid grid-cols-1 gap-6" id="situations-container">
+        <!-- Javascript will render or we write standard high-polish cards -->
+      </div>
+    </section>
+
+    <!-- Actual Copywriting Section -->
+    <section class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Threads 실전 발행 피드 카피 세트 (호정가 약과)</h2>
+        <p class="text-sm text-slate-500 mt-1">사진 2장과 함께 업로드하는 본문 및 댓글 조합입니다.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Post 1 -->
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">피드 본문 (Post 1/2)</span>
+              <span class="text-xs text-rose-600 font-semibold">사진 2장 첨부</span>
+            </div>
+            <pre id="feed-post-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">택배 기사님 진심으로 죄송합니다...🚪📦
+
+1kg에 4천원대라길래 눈 돌아서 쟁여뒀는데
+퇴근하고 엘베 내리자마자 저희 집 앞 보고 기절할 뻔했어요ㅋㅋㅋ
+한 개 100원 꼴인데 이걸 어떻게 참아요 진짜ㅠㅠ
+
+찹쌀이라 쫀득달달해서 온 가족이 먹어도 반년은 거뜬할 듯..
+쟁여두실 분들은 지금 얼른 타세요!!</pre>
+          </div>
+          <button onclick="copyElement('feed-post-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+            본문 카피 복사
+          </button>
+        </div>
+
+        <!-- Post 2 (Comment) -->
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">첫 댓글 (Post 2/2)</span>
+              <span class="text-xs text-emerald-600 font-semibold">전환 유도</span>
+            </div>
+            <pre id="feed-comment-text" class="text-xs sm:text-sm font-sans text-slate-800 whitespace-pre-line leading-relaxed bg-white p-4 rounded-xl border border-slate-200/60">프로필 링크에 약과 4천원대 공구 좌표 260번에 남겨뒀어요!
+수량 얼마 안 남아서 품절 뜨면 댓글로 알려주세요 바로 확인해볼게요🔥</pre>
+          </div>
+          <button onclick="copyElement('feed-comment-text')" class="w-full py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold transition">
+            댓글 카피 복사
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Lightbox Modal -->
+  <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 cursor-pointer" onclick="closeModal()">
+    <img id="modal-img" src="" alt="Enlarged" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain" />
+    <button class="absolute top-6 right-6 text-white text-3xl font-light hover:text-slate-300">&times;</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white py-10 mt-16 text-center text-xs text-slate-400">
+    <p>Threads Studio Autonomous Marketing System &copy; 2026. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const situations = [
+      {
+        num: 1,
+        title: "아파트 복도 엘리베이터 앞 천장 적재 (배달 기사 사죄 밈)",
+        tag: "가장 높은 반응률",
+        p1: "실제 20대 한국 여성의 인스타 일상 거울 셀카 사진. 장소는 서울 성수동 골목 감성 카페 쇼윈도 유리창 앞. 쇼윈도에 비친 전신 거울 셀카 구도. 슬림하고 탄탄한 핏의 크롭 니트와 와이드 데님 팬츠를 입고, 스마트폰을 들어 얼굴 윗부분을 자연스럽게 가린 채 거울 셀카를 찍고 있음. 다른 한 손에는 {소용량 1개 형태}을 가볍게 들고 있음. 오후 자연광, 유리창에 은은한 거리 반사, 아이폰 기본 카메라 라이브 스냅 질감.",
+        p2: "한국 아파트 엘리베이터 앞 복도 바닥에 사람 없이 찍은 스마트폰 사진. 복도 벽면을 따라 '{상품명}'이라고 적힌 갈색 택배 박스 수십 개가 천장까지 빈틈없이 거대한 벽돌처럼 산더미로 쌓여 있음. 사람 전혀 없음. 엘리베이터 문과 타일 바닥, 형광등 조명이 보이는 현실적인 한국 복도 폰카 스냅."
+      },
+      {
+        num: 2,
+        title: "현관문 개폐 불가 봉쇄 밈 (탈출 불가)",
+        tag: "호기심 & 유머",
+        p1: "세련된 20대 한국 여성의 도심 스트릿 폰카 스냅. 한남동 부티크 샵 전면 거울 앞에 서서 찍은 전신 셀카. 슬림핏 나시탑에 린넨 셔츠를 살짝 걸치고, 폰으로 눈을 가림. 한 손에는 {소용량 1개 형태}을 쥐고 있음. 자연스러운 일상 핏, 노보정 아이폰 색감.",
+        p2: "아파트 실내 현관문 안쪽에서 문을 열려고 하는데 바깥에 쌓인 택배 박스들 때문에 문이 10cm밖에 안 열리는 시점의 폰카 사진. 문틈 사이로 '{상품명}' 택배 상자들이 천장까지 벽처럼 빽빽하게 막고 있어 문이 꽉 끼어있음. 사람 없음. 긴박하고 황당한 1인칭 시점."
+      },
+      {
+        num: 3,
+        title: "원룸 방바닥 및 침대 점령 (생활 공간 실종)",
+        tag: "공감형 쟁여두기",
+        p1: "햇살이 잘 드는 화이트톤 쇼룸 거울 앞에서 찍은 20대 한국 여성의 내추럴 오오티디 스냅. 오버핏 셔츠 안에 슬림한 탑, 숏팬츠 차림. 폰을 비스듬히 들어 얼굴을 살짝 가리고 서 있음. 테이블 위 또는 손에 {소용량 1개 형태}이 자연스럽게 놓여 있음. 감성적인 인스타 스토리 무드.",
+        p2: "한국 원룸 오피스텔 내부를 찍은 광각 폰카 사진. 침대 매트리스 한구석을 제외한 바닥 전체와 협탁, 바닥 공간이 '{상품명}' 택배 상자와 포장 박스로 테트리스처럼 꽉 차서 발 디딜 틈이 전혀 없음. 사람 없음. 방 주인이 쟁여두기에 미친 듯한 유머러스한 현실 폰카."
+      },
+      {
+        num: 4,
+        title: "팬트리 / 다용도실 수납장 창고화",
+        tag: "정리벽 & 광기",
+        p1: "모던한 베이커리 카페 야외 테라스 통유리에 비친 20대 여성의 전신 폰카 실루엣 셀카. 몸매 라인이 돋보이는 심플한 골지 원피스를 입고 폰을 들어 얼굴을 가림. 손가락에 {소용량 1개 형태}을 들고 있음. 햇살과 그림자가 드리운 필름 카메라 톤.",
+        p2: "가정집 다용도실 팬트리 수납 선반을 찍은 스마트폰 사진. 4단 선반 모든 칸에 빈 공간이 1cm도 없이 '{상품명}' 정품 박스들이 편의점 물류창고처럼 빽빽하게 테트리스 적재되어 있음. 사람 없음. 지나치게 칼각으로 쟁여둔 광기의 수납 폰카."
+      },
+      {
+        num: 5,
+        title: "거실 소파와 테이블이 박스 요새로 변한 상황",
+        tag: "거실 점령 밈",
+        p1: "트렌디한 피트니스 센터 로비 전신 거울 앞 20대 한국 여성 스냅. 단정한 크롭 애슬레저 룩 차림으로 폰을 들어 거울 셀카. 한 손에는 {소용량 1개 형태}을 쥐고 있음. 건강미 넘치는 슬림한 핏, 리얼한 조명과 거울 반사.",
+        p2: "아파트 거실 한가운데에 소파를 둘러싸고 '{상품명}' 택배 박스로 성벽 요새처럼 2미터 높이로 빙 둘러 쌓아놓은 유머러스한 폰카 사진. 거실 TV 앞까지 박스가 점령함. 사람 없음. 형광등 아래 진짜 박스가 폭탄처럼 쌓인 리얼한 일상 스냅."
+      },
+      {
+        num: 6,
+        title: "지하 주차장 SUV 트렁크 + 뒷좌석 폭발 적재",
+        tag: "스케일 과장",
+        p1: "지하 주차장 차량 옆 대형 반사경 거울에 비친 20대 한국 여성의 힙한 스트릿 스냅. 크롭 후드와 카고 팬츠 핏, 폰으로 얼굴을 가린 채 거울 셀카. 가방 옆에 {소용량 1개 형태}이 살짝 보임.",
+        p2: "아파트 지하 주차장에서 SUV 트렁크 문을 활짝 열어둔 상태의 폰카 사진. 트렁크 안쪽부터 뒷좌석까지 빈틈없이 '{상품명}' 대형 박스 수십 개가 터질 듯이 가득 차 있어 금방이라도 쏟아져 내릴 것 같음. 사람 없음. 바닥 주차 라인과 주차장 콘크리트 기둥이 보이는 생생한 실사."
+      },
+      {
+        num: 7,
+        title: "냉장고 문 열자마자 폭포수 쟁여두기",
+        tag: "식품/간식 최적화",
+        p1: "화이트 미니멀 인테리어의 주방 아일랜드 식탁 앞 전신 거울 셀카. 20대 한국 여성, 슬림한 니트와 슬랙스 핏. 폰을 들어 얼굴을 가림. 식탁 위에 {소용량 1개 형태} 하나가 단정하게 놓여 있음. 자연광 폰카.",
+        p2: "양문형 대형 냉장고 문을 양쪽으로 활짝 연 상태를 정면에서 찍은 폰카. 야채칸, 냉동칸, 문짝 수납칸까지 다른 음식은 일절 없고 오직 '{상품명}' 제품들로만 수백 개가 빈틈없이 꽉 채워져 있음. 사람 없음. 열자마자 쏟아질 것 같은 비현실적 쟁여두기 광경."
+      },
+      {
+        num: 8,
+        title: "사무실 / 직장 탕비실 싹쓸이 점령",
+        tag: "직장인 공감",
+        p1: "트렌디한 공유오피스 라운지 전신 거울 앞 20대 여성 직장인의 오피스룩 거울 셀카. 깔끔한 셔츠와 슬랙스 차림, 폰으로 얼굴 가림, 한 손에 {소용량 1개 형태}을 쥐고 있음.",
+        p2: "회사 탕비실 싱크대와 정수기 주변 바닥, 선반 전체를 찍은 사진. 탕비실 코너 전체에 '{상품명}' 대형 박스가 천장까지 쌓여 있고, 싱크대 상판에도 제품이 산더미로 쏟아져 있음. 사람 없음. 회사 탕비실에 공구 폭탄 맞은 듯한 폰카."
+      },
+      {
+        num: 9,
+        title: "대형 마트 카트 2개 산더미 싹쓸이",
+        tag: "싹쓸이 쾌감",
+        p1: "도심 대형 마트 에스컬레이터 옆 거울에 비친 20대 여성의 일상 셀카. 볼캡 모자를 깊게 눌러쓰고 오버핏 맨투맨에 바이커 쇼츠, 폰으로 얼굴을 가림. 장바구니에 {소용량 1개 형태}이 살짝 담겨 있음.",
+        p2: "대형 마트 계산대 앞 복도에 세워진 쇼핑 카트 2대를 찍은 폰카 사진. 카트 2대 모두에 '{상품명}' 대용량 박스가 피사의 사탑처럼 위태롭게 산더미로 쌓여 있음. 사람 없음. 주변 마트 매대와 바닥 에폭시가 보이는 리얼 스냅."
+      },
+      {
+        num: 10,
+        title: "야외 캠핑 / 차박 대량 하적 유머",
+        tag: "아웃도어/여름",
+        p1: "감성 글램핑장 전신 거울 또는 차박 창문에 비친 20대 여성의 아웃도어 스냅. 아노락 점퍼와 조거 팬츠, 폰으로 얼굴 가림, 한 손에 {소용량 1개 형태}을 들고 미소 짓는 실루엣.",
+        p2: "야외 캠핑장 텐트 옆 잔디밭 위에 캠핑 테이블 대신 '{상품명}' 택배 박스 수십 개로 테이블과 의자, 담벼락을 만들어놓은 황당하고 코믹한 폰카 사진. 사람 없음. 자연 잔디밭과 텐트 배경 실사."
+      }
+    ];
+
+    const container = document.getElementById('situations-container');
+    situations.forEach(s => {
+      const card = document.createElement('div');
+      card.className = "bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-sm space-y-4 hover:border-slate-300 transition";
+      card.innerHTML = `
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-6 h-6 rounded-lg bg-slate-900 text-white font-bold text-xs flex items-center justify-center">#${s.num}</span>
+            <h3 class="font-bold text-slate-900 text-base sm:text-lg">${s.title}</h3>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2.5 py-1 rounded-md">${s.tag}</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-rose-50/40 border border-rose-100/80 space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-rose-700 block mb-1">📸 사진 1: 인물 훔쳐보기 스냅</span>
+              <p class="text-xs text-slate-700 leading-relaxed">${s.p1}</p>
+            </div>
+            <button onclick="copyText(\`${s.p1.replace(/'/g, "\\'")}\`)" class="mt-3 w-full py-1.5 px-3 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold transition flex items-center justify-center gap-1.5">
+              <span>사진 1 프롬프트 복사</span>
+            </button>
+          </div>
+          <div class="p-4 rounded-xl bg-amber-50/40 border border-amber-100/80 space-y-2 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-amber-700 block mb-1">📦 사진 2: 과장 밈 증명샷</span>
+              <p class="text-xs text-slate-700 leading-relaxed">${s.p2}</p>
+            </div>
+            <button onclick="copyText(\`${s.p2.replace(/'/g, "\\'")}\`)" class="mt-3 w-full py-1.5 px-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold transition flex items-center justify-center gap-1.5">
+              <span>사진 2 프롬프트 복사</span>
+            </button>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("프롬프트가 클립보드에 복사되었습니다!");
+      });
+    }
+
+    function copyElement(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        navigator.clipboard.writeText(el.innerText).then(() => {
+          showToast("카피가 클립보드에 복사되었습니다!");
+        });
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2000);
+    }
+
+    function openModal(src) {
+      const modal = document.getElementById('image-modal');
+      const img = document.getElementById('modal-img');
+      img.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
